@@ -1,0 +1,92 @@
+use anusha;
+select * from sakila.actor ;
+---------------------------------------------------------------------------------------------------------------------
+use sakila;
+show tables; -- shows all tables from sakila database
+
+select * from actor; -- selects all columns from the table actor
+
+select first_name, last_name
+from actor;      -- selects only first_name and last_name columns of actor table
+-------------------------------------------------------------------------------------------------------------------
+select count(first_name),count(last_name)
+from actor;   -- it returns the count of first_name and last_name columns
+
+select distinct first_name from actor; -- selects only different first_name values from actors table
+
+select count(*) from actor; -- returns count of all columns from actor table
+
+select count(distinct first_name) from actor; -- returns number of distinct first_name from actor
+
+
+select * from actor_info;
+select * from city;
+select * from country;
+select * from address;   -- selects all columns from respective tables
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+select * from country
+where country='france';  -- selects records where country name is france
+
+select * from country
+where country_id> 100; -- selects all records where country_id is > 100
+
+
+
+select * from country
+where country_id=105 and country='vietnam';  -- selects all records where id is 105 and country is vietnam
+
+select * from country
+where country_id=105 or country='france'; -- selects all records where id is 105 or country is france
+
+select * from country
+where country_id != 105; -- selects all records where id is not equal to 105
+
+select * from country
+order by country desc; -- sort the result set in descending order
+
+select * from film_text; -- selects all columns from film_text table
+------------------------------------------------------------------------------------------------------------------------------------
+insert into country(country_id, country)
+values(110, 'india'),
+(111, 'america'),
+(112, 'vatican city'); -- inserts 110 as country_id and india as country name
+select * from country;
+
+
+
+insert into actor(first_name, last_name)
+values('anusha','palli');
+select * from actor; -- inserts anusha and palli as first and last name 
+-----------------------------------------------------------------------------------------------------------------------------------------
+select * from category where name is null; -- returns null values
+select * from category where name is not null; -- returns non null values
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+update actor set first_name='abhi', last_name='palli' where actor_id=202;
+select * from actor; -- it modifies the record according to the values
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,44 @@
+select ascii(first_name) from anusha.collegue; -- returns the ASCII value for the specific character
+select ascii(location) from anusha.employee;  -- returns the ASCII value for the specific character
+
+select char_length(last_name) from anusha.employee; -- returns the length of a string in characters
+
+select concat("anusha",' ','is',' ','working as',' ' , 'APD engineer'); -- function adds two or more expressions together
+
+select concat_ws("-","anusha",'is','working as','APD engineer'); -- function adds two or more expressions together with a separator
+
+select field('i','n','i','r','a','n','j','a','n'); -- function returns the index position of a value in a list of values
+
+select field('o','n','i','r','a','n','j','a','n');
+select field(null ,'n','i','r','a','n','j','a','n')-- If the specified value is not found in the list of values, this function will return 0. If value is NULL, this function will return 0
+
+
+select find_in_set("s","a,n,u,s,h,a"); -- function returns the position of a string within a list of strings
+select find_in_set("o","a,n,u,s,h,a"); -- string is not found in string_list, this function returns 0
+select find_in_set(null,"a,n,u,s,h,a"); -- string_list is NULL, this function returns NULL
+select find_in_set('a'," "); -- string_list is an empty string (" "), this function returns 0
+
+select format(245367.9998726, 5); -- function formats a number to a format like "#,###,###.##", rounded to a specified number of decimal places, then it returns the result as a string
+
+select insert("we are celebrating" , 14,17,"ed diwali"); -- function inserts a string within a string at the specified position and for a certain number of characters
+select insert('anusha', 4,6,'niru');
+select insert('anusha', 4,7,'niru');
+
+select instr("anusha",'sha'); -- function returns the position of the first occurrence of a string in another string
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

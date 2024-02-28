@@ -1,0 +1,69 @@
+use sakila; -- sakila database is used
+select *from actor limit 100; -- top 100 rows are returned
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+select * from actor order by actor_id desc limit 100; -- actor id is sorted in descending order so that bottom 100 rows can be returned
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+select * from payment; -- selects all columns from payment table
+select min(amount) from payment where staff_id=2; -- returns minimum amount from payment table where staffid is 2
+
+select min(amount), max(amount) from payment where staff_id=2; -- returns minimum and max amount from payment table where staffid is 2
+
+select sum(amount)from payment; -- returns sum of the amount from payment table
+
+select avg(amount)from payment; -- returns avg value of amount from payment table
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+select first_name from actor where first_name like 'a_____%'; 
+select first_name from actor where first_name like '%______a';
+select first_name from actor where first_name like '%or%'; -- selects firstnames starting with 'a' ending with 'a' and having 'or' in middle
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+select * from country;
+
+select *from country where country in('india','angola','oman', 'romania');  -- selects rows where country name is as specified
+
+select *from country where country not in('india','angola','oman', 'romania'); -- selects rows where country name is not as specified
+
+select *from country where country in ( select country from country where country_id != 4); -- selects rows where countryid is not 4 
+
+select *from country where country not in ( select country from country where country_id != 4); -- selects rows where country id is 4
+-----------------------------------------------------------------------------------------------------------------------------------------------
+select * from country where country_id between 25 and 67; -- selects all rows between specified range
+
+select country as country_name from country; -- alias for country column as country_name
+
+
+
+select * from actor where first_name='abhi' union  select * from actor where  first_name='anusha'; -- it will union the rows with first name as specified
+
+select amount, customer_id from payment group by amount;  -- selects amount and customer id columns from payment table and groups the records by amount
+
+select * from actor where last_name = any
+(select last_name from actor where last_name = 'palli'); 
+select * from actor where last_name = all
+(select last_name from actor where last_name = 'palli'); -- The ANY and ALL operators allow you to perform a comparison between a single column value and a range of other values
+
+select * from payment where amount > any
+(select amount from payment where amount > 5);  -- returns rows where amount >5
+
+select * from payment where amount < all
+(select amount from payment where amount > 5); -- returns rows where amount<5
+
+
+create table new_actors as select * from actor;  -- creates a table by copying the existing table in a database
+select * from new_actors;   -- selects all rows from new_actors table
+
+create table new_actors2 as select * from actor where actor_id<35;  -- creates a table by copying the existing table in a database
+select * from new_actors2;
+
+create table test_table as select first_name from actor;
+select * from test_table; -- creates a table by copying the existing table in a database
+
+insert into new_actors2 select * from actor where actor_id>=90;  -- copies the rows where actor_id>=90 from actor and inserts those values in new_actors2 table
+
+insert into test_table select first_name from actor where first_name = 'anusha'; -- copies the row where first_name is anusha from actor and inserts it in test_table
+
+
+
+ 

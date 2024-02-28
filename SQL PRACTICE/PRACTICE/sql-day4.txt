@@ -1,0 +1,43 @@
+select city.city_id, city.city, country.country from city inner join country on city.country_id=country.country_id; 
+/*selects city_id and city from city table
+   country from country table
+   inner join is performed based on condition city.country_id=country.country_id
+   it returns matching records from both tables */
+ 
+ select city.city_id as c, city.city as ci, country.country as co from city inner join country on city.country_id=country.country_id; 
+   /*selects city_id as 'c' and city as'ci' from city table
+   country as 'co' from country table
+   inner join is performed based on condition city.country_id=country.country_id
+   it returns matching records from both tables */
+  
+  select c.city_id, c.city, y.country from city c inner join country y on c.country_id=y.country_id; 
+   /* aliases are created for city and country tables.selects city_id and city from city table
+   country from country table
+   inner join is performed based on condition city.country_id=country.country_id
+   it returns matching records from both tables */
+
+ select a.address_id, a.city_id, a.address, c.city from address a left join city c on a.city_id=c.city_id;
+ --  it returns all rows from left table address but only matching records from right table city
+
+   
+ select f.film_id, f.title, r.description, r.release_year from film r right join film_text f on r.film_id=f.film_id;
+ -- returns all rows from right table film_text and matching records from left table film
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+select * from payment where staff_id=2 group by amount
+having avg(amount)>6;  -- selects rows where staff_id=2 and average of amount>6 and grouping done by amount column from payment table
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+alter table students
+add last_name varchar(15); -- adds column last_name
+alter table students
+modify column phone varchar(14); -- modifies column phone
+alter table students
+drop column last_name; -- deletes column last_name
+select * from students;
+
+
+
+
+

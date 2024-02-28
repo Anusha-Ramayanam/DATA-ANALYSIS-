@@ -1,0 +1,29 @@
+use mysql;
+show tables;
+use information_schema;
+show tables;
+use performance_schema;
+show tables;
+use sys;
+show tables;
+-----------------------------------------------------------------------------------------------
+create database anusha;
+create table students 
+(id int not null primary key,
+name varchar(15),
+phone varchar(15),
+admission_date date);
+select * from students;
+describe table students;
+insert into students
+values (1,'abhi','123345','2022-07-26'),
+(2,'anushaa','276275','2022-07-24'),
+(3,'nirusha','234152','2022-08-15');
+select current_date;
+select * from students
+-- where name='Abhi' or name='abhi'
+where name != 'abhi';
+-----------------------------------------------------------------------------------------------
+
+delete from students where id=3; --deletes the record where id is 3.
+
